@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0e17;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e0f7ff;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(26, 68, 122, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(75, 24, 107, 0.15) 0%, transparent 25%);
+    z-index: -1;
+}
+
+.cliker {
+    background: rgba(15, 20, 35, 0.85);
+    border: 1px solid #00a8ff;
+    border-radius: 16px;
+    box-shadow: 
+        0 0 25px rgba(0, 168, 255, 0.35),
+        0 10px 30px rgba(0, 0, 0, 0.6);
+    padding: 40px 30px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+}
+
+h1 {
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+    background: linear-gradient(45deg, #00e5ff, #4fc3f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+p {
+    font-size: 1.3rem;
+    margin: 25px 0 15px;
+    color: #a0d2ff;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+#contador {
+    font-family: 'Orbitron', 'Courier New', monospace;
+    font-size: 5.5rem;
+    font-weight: 800;
+    color: #00e5ff;
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.7);
+    margin: 20px 0;
+    display: block;
+    background: rgba(0, 20, 40, 0.6);
+    border-radius: 10px;
+    padding: 10px 0;
+    border: 1px solid rgba(0, 168, 255, 0.4);
+    letter-spacing: -3px;
+    transition: all 0.2s ease;
+}
+
+#contador.incrementando {
+    transform: scale(1.05);
+    color: #ff1b9e;
+    text-shadow: 0 0 20px rgba(255, 27, 158, 0.8);
+}
+
+button {
+    background: rgba(20, 30, 50, 0.9);
+    color: #00e5ff;
+    border: 2px solid #00a8ff;
+    padding: 16px 50px;
+    font-size: 1.4rem;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+button:hover {
+    background: rgba(0, 30, 60, 0.95);
+    box-shadow: 0 0 20px rgba(0, 168, 255, 0.6);
+    transform: translateY(-2px);
+    color: white;
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 10px rgba(0, 168, 255, 0.4);
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 168, 255, 0.25) 0%, transparent 70%);
+    z-index: -1;
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+button:hover::after {
+    opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .cliker {
+        padding: 30px 20px;
+        margin: 15px;
+    }
+    
+    h1 {
+        font-size: 1.9rem;
+        letter-spacing: 1px;
+    }
+    
+    #contador {
+        font-size: 4.2rem;
+        letter-spacing: -2px;
+    }
+    
+    button {
+        padding: 14px 40px;
+        font-size: 1.25rem;
+        letter-spacing: 1px;
+    }
+    
+    p {
+        font-size: 1.15rem;
+    }
+}
+
+/* Animação sutil de pulsação no contador */
+#contador {
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { text-shadow: 0 0 15px rgba(0, 229, 255, 0.7); }
+    50% { text-shadow: 0 0 25px rgba(0, 229, 255, 0.9), 0 0 35px rgba(79, 195, 247, 0.6); }
+}
+
+/* Efeito de entrada suave */
+.cliker {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
