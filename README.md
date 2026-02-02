@@ -86,10 +86,3 @@ Por padrão sugerimos a licença MIT. Se preferir outra licença, me informe que
 
 ## Autor
 - kaikemur — https://github.com/kaikemur
-
----
-
-Quer que eu:
-- Gere uma versão com instruções específicas de deploy no GitHub Pages?
-- Adicione exemplos de código (trecho do `script.js`) ou screenshots?
-- Troque a licença para outra (Apache-2.0, GPL, etc.)?
